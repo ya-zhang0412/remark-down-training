@@ -1,0 +1,56 @@
+---
+title: "Rmarkdwon and HPC training"
+author: "yazhang"
+date: "2021/12/17"
+output: html_document
+bookdown::html_document2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+# HPC traning
+Thisdocument is written to cover the tools, information and commands to run jobs on the Griffith Gowonda HPC cluster.
+
+## Required Tools
+* Registered account on Gowonda (use the [link]( https://conf-ers.griffith.edu.au/display/GHCD/Gowonda+HPC ) to apply) 
+*kitty - see [download link](https://www.fosshub.com/KiTTY.html)
+
+## SSH to Gowonda
+we need to connect to the HPC by SSH-login to ` gc-prd-hpclogin1.rcs.griffith.edu.au`(use your griffith sNumber),using KiTTY (Win) or `SSH` command (Mac)
+
+Once we have logged in, we can creat and navigate to our working directory. The home folder has ~100GB capacity, while the `scrach` folder is used for short-term storage and process of raw file.
+
+### Basic folder navigation
+List files and directories
+```{bash}
+#list files and directories
+ls
+#long listing
+ls -lh
+```
+
+Creat a new folder insde `scrach` to practice:
+```{bash}
+#creat a new directory
+mkdir ~/scratch/sandbox
+#enter the newly created folder
+cd ~/scratch/sandbox
+```
+
+
+Download files from the web (bypass GU proxy first, as can be seen in \@ref(download-files))
+
+```{bash download-files}
+# bypass proxy
+source ~/s3proxy.sh
+#download the shell data
+ wget https://idobar.github.io/shell-novice/data/shell-lesson-data.zip
+ # unizip the files from the archive
+ unzip shell-lesson-data.zip
+ #enter 
+```
+
+
+###version control with 
